@@ -8,26 +8,7 @@
   <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <!-- Demo styles -->
   <style>
-    /* *{
-      margin: 0;
-      padding: 0;
-    } */
-    html,
-    body {
-      position: relative;
-      height: 100%;
-    }
-
-    body {
-      background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #000;
-      margin: 0;
-      padding: 0;
-    }
     .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
       top: 0%;
       left: 93%;
@@ -36,253 +17,191 @@
       flex-direction: column;
       align-items: end;
       justify-content: center;
-      gap: 19px;
-      padding-bottom: 25%;
+      gap: 30px;
     }
     .swiper {
-      width: 1140px;
-      height: 100%;
-      position: relative;
+      border-radius: 25px;
     }
-    .swiper-wrapper{
-      height: 750px;
+    .overlay{
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+      position: absolute;
     }
     .swiper-pagination-bullet-active{
-        padding: 0px;
-        position: relative;
+      position: relative;
     }
     .swiper-pagination-bullet-active::after{
       content: "";
-      height: 25px;
-      width: 25px;
-      background-color: transparent;
+      height: 15px;
+      width: 15px;
       border: 1px solid transparent;
       border-radius: 50%;
       position: absolute;
-      box-shadow: 0px 0px 0px 3px white;
+      box-shadow: 0px 0px 0px 2px white;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
     }
     .swiper-pagination-bullet{
       background: #fff;
-      padding: 5px;
+      padding: 1px;
       opacity: 1 !important;
     }
     .swiper-slide {     
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
       display: flex;
-      justify-content: center;
-      align-items: start;
-      background-repeat: no-repeat;
-      background-image: url("https://maxmod-goggles.myshopify.com/cdn/shop/files/1.webp?v=1713438123&width=1500");
-      background-size: cover; 
+      justify-content: end;
       flex-direction: column;
-      border-radius: 25px;
-      overflow: hidden; 
-      box-sizing: border-box; 
+      height: auto;
     }
-    .slide-2{
-      background-image: url("https://maxmod-goggles.myshopify.com/cdn/shop/files/2.webp?v=1713438127&width=1500");
-    }
-    .slide-3{
-      background-image: url("https://maxmod-goggles.myshopify.com/cdn/shop/files/3.webp?v=1713438128&width=1500");
+    #bg-image{
+      height: 100%;
+      object-fit: cover;
     }
     .container{
-      display: flex;
-      flex-direction: column;
-      padding-left: 85px;
-      row-gap: 10px;
-    }
+      padding: 3em 50px;
+      position: absolute;
+    } 
     .button{
-        width: 1140px;
-        display: flex;
-        font-size: 8px;
-        justify-content: start;
-        gap: 15px;
-        align-items: start;
+      display: flex;
+      gap: 10px;
     }
     .btn-1{
-        display: flex;
-        background-color: #fff;
-        padding: 10px;
-        border: 1px solid white;
-        border-radius: 35px;
-        width: 12%;
-        justify-content: center;
+      background-color: #fff;
+      padding: 0px 25px;
+      border: 1px solid white;
+      border-radius: 35px;
     }
     .btn-2{
-        display: flex;
-        background-color: transparent;
-        color: white;
-        border: 1px solid #fff;
-        border-radius: 35px;
-        width: 15%;
-        padding: 10px;
-        justify-content: center;
-        align-items: center;
+      color: white;
+      border: 1px solid #fff;
+      border-radius: 35px;
+      padding: 0px 25px;
     }
     .btn-1:hover{
-        background-color: transparent;
-        border: 1px solid #fff;
-        color: #fff;
+      background-color: transparent;
+      border: 1px solid #fff;
+      color: #fff;
     }
     .btn-2:hover{
-        background-color: white;
-        color: #000;
+      background-color: white;
+      color: #000;
     }
     .heading{
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-    }
-    .text-1{
-      display: flex;
       color: #fff;
     }
-    .text-2{
-      display: flex;
-      color: #fff;
+    .text-1 p{
+      font-weight: 700;
+      font-size: 14px;
     }
-    @media (max-width: 400px){
+    .text-2 h2{
+      font-weight: 800;
+      font-size: 34px;
+      margin: 0px;
+      padding-bottom: 20px;
+    }
+    .btn-1,.btn-2 p{
+      font-weight: 700;
+      font-size: 16px;
+    }
+    @media (max-width: 575px){
       .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
-        left: 0%;
-        flex-direction: row;
-        width: 100%;
-        align-items: end;
-        padding-bottom: 3%;
-        gap: 7px;
-        height: 5%;
-        top: 685px;
-      }
-      .swiper-slide{
-        justify-content: end;
-        height: 98%;
-        background-size: 303%;
-        background-position: 52% 0%;
-      }
-      .swiper-wrapper{
-        height: 750px;
-      }
-      .swiper{
-        width: 360px;
-        border-radius: 25px;
-      }
-      .swiper-pagination-bullet{
-        padding: 4px;
-      }
-      .swiper-pagination-bullet-active::after{
-        box-shadow: 0px 0px 0px 2px white;
-        border: 1px solid transparent;
-      }
-      .container{
-        padding-top: 20px;
-        padding-bottom: 50px;
-        background-color: #000;
-        padding-left: 25px;
-        align-items: start;
-      }
-      .text-1 h3{
-        font-size: 16px;
-      }
-      .text-2 h1{
-        font-size: 25px;
-        width: 80%;
-        text-align: start;
-      }
-      .btn-1{
-        padding: 0px;
-        width: 11%;
-      }
-      .btn-1 h1{
-        font-size: 13px;
-      }
-      .btn-2{
-        padding: 0px;
-        width: 11%;
-      }
-      .btn-2 h1{
-        font-size: 13px;
-      }
-      .text-2 #title-1{
-        font-size: 25px;
-        width: 60%;
-      }
-      .text-2 #title-2{
-        font-size: 25px;
-        width: 80%;
-      }
-      .text-2 #title-3{
-        font-size: 25px;
-        width: 50%;
-      }
-      .text-1 #description-1{
-        margin-top: -13px;
-      }
+      left: 0%;
+      top: 97%;
+      width: 100%;
+      gap: 5px !important;
+      flex-direction: row;
+      align-items: unset;
     }
-      
+    }
+    @media (max-width: 749px){
+    .container{
+      position: static;
+      padding: 10px;
+      background: #000;
+    } 
+    #bg-image{
+      min-height: 400px;
+      object-fit: cover;
+    }
+    .overlay{
+      background-color: unset;
+    }
+    .text-2 h2{
+      font-size: 24px;
+      min-width: 270px;
+      padding-bottom: 5px;
+      min-height: 90px;
+    }
+    .btn-1, .btn-2 p{
+      font-size: 12px;
+    }
+    }  
   </style>
 </head>
-
 <body>
   <!-- Swiper -->
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
+        <div class="overlay"></div>
+        <img id="bg-image" src="1.webp">
         <div class="container">
         <div class="heading">
           <div class="text-1">
-            <h3>Perfect fit for every face</h3>
+            <p>Perfect fit for every face</p>
           </div>
           <div class="text-2">
-            <h1 id="title-1">SHOP YOUR OUTFIT SUNGLASSES</h1>
+            <h2 id="title-1">SHOP YOUR OUTFIT SUNGLASSES</h2>
           </div>
         </div>
           <div class="button">
             <div class="btn-1">
-                <h1>SHOP MEN'S</h1>
+                <p>SHOP MEN'S</p>
             </div>
             <div class="btn-2">
-                <h1>SHOP WOMEN'S</h1>
+                <p>SHOP WOMEN'S</p>
             </div>
           </div>
         </div>
     </div>
       <div class="swiper-slide slide-2">
+        <div class="overlay"></div>
+        <img id="bg-image" src="2.webp">
         <div class="container">
           <div class="heading">
             <div class="text-1">
-              <h3>Ideal for any activity</h3>
+              <p>Ideal for any activity</p>
             </div>
             <div class="text-2">
-              <h1 id="title-2">PROTECT YOUR EYES IN STYLE</h1>
+              <h2 id="title-2">PROTECT YOUR EYES IN STYLE</h2>
             </div>
           </div>
             <div class="button">
               <div class="btn-1">
-                  <h1>SHOP WOMEN'S</h1>
+                  <p>SHOP WOMEN'S</p>
               </div>
             </div>
           </div>
       </div>
       <div class="swiper-slide slide-3">
+        <div class="overlay"></div>
+        <img id="bg-image" src="3.webp">
         <div class="container">
           <div class="heading">
             <div class="text-1">
-              <h3 id="description-1">Comfort in every pair</h3>
+              <p id="description-1">Comfort in every pair</p>
             </div>
             <div class="text-2">
-              <h1 id="title-3">EXPLORE OUR LATEST COLLECTION OF GOGGLES</h1>
+              <h2 id="title-3">EXPLORE OUR LATEST COLLECTION OF GOGGLES</h2>
             </div>
           </div>
             <div class="button">
               <div class="btn-1">
-                  <h1>SHOP MEN'S</h1>
+                  <p>SHOP MEN'S</p>
               </div>
               <div class="btn-2">
-                  <h1>SHOP WOMEN'S</h1>
+                  <p>SHOP WOMEN'S</p>
               </div>
             </div>
           </div>
@@ -290,7 +209,6 @@
     </div>
     <div class="swiper-pagination"></div>
     </div>
-  </div>
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -303,6 +221,11 @@
         el: ".swiper-pagination",
         clickable: true,
       },
+      breakpoints: {
+        1024: {
+        allowTouchMove: false, 
+          },
+      }
     });
   </script>
 </body>
